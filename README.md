@@ -1,7 +1,5 @@
 # Frontend AYED
 
-# Backend AYED
-
 ## What is this?
 
 This is a repository for all the files used to create a basic React App.
