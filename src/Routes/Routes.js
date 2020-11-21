@@ -1,4 +1,4 @@
-export default {
+const Routes = {
   home: {
     id: 0,
     path: "/",
@@ -17,3 +17,5 @@ export default {
     name: "heap"
   }
 };
+
+export default Routes;

@@ -1,0 +1,11 @@
+.graph__container {
+    border: 5px solid black;
+}
+
+.graph__title {
+    font-size: 2.5em;
+
+    margin-top: 5px;
+
+    text-align: center;
+}

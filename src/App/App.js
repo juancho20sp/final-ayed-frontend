@@ -11,6 +11,14 @@ import Graphs from "./../Views/Graphs/Graphs";
 import Routes from "./../Routes/Routes";
 
 function App() {
+  /*const [initialData, setInitialData] = useState([{}]);
+
+  useEffect(() => {
+    fetch("/api")
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  }, []);*/
+
   return (
     <>
       <BrowserRouter>
