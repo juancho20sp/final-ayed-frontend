@@ -1,3 +1,9 @@
 .header__container {
-    background-color: grey;
+    background-color: #3f50b5;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

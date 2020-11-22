@@ -1,50 +1,84 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
+import "./FormTwo.css";
 import { useForm } from "react-hook-form";
 
-import Input from "@material-ui/core/Input";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 const FormTwo = (props) => {
   const { register, handleSubmit, errors } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    if (data.hasOwnProperty("start") || data.hasOwnProperty("goal")) {
+      props.setLimits({
+        start: data.start,
+        goal: data.goal
+      });
+    }
+
+    if (data.hasOwnProperty("from") || data.hasOwnProperty("to")) {
+      props.setPairs([...props.pairs, [data.from, data.to]]);
+    }
+  };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)} noValidate>
-        {/* Nodo de inicio */}
+    <form onSubmit={handleSubmit(onSubmit)} noValidate>
+      {/* Nodo de inicio */}
+      <div className="form-two__container">
+        <div className="form-start__container">
+          <TextField
+            variant="outlined"
+            label={props.input1}
+            placeholder="0"
+            name={props.name1}
+            inputRef={register({
+              required: true,
+              pattern: /^[0-9]+$/,
+              minLength: 1
+            })}
+          ></TextField>
 
-        <Input
-          placeholder="0"
-          id="start"
-          ref={register({ required: true, pattern: /^[0-9]+$/, minLength: 1 })}
-        ></Input>
+          <span className="form__error">
+            {errors.start && errors.start.type === "required" && (
+              <p>Este campo es obligatorio</p>
+            )}
+            {errors.start && errors.start.type === "pattern" && (
+              <p>El valor ingresado debe ser numérico</p>
+            )}
+          </span>
+        </div>
 
-        {errors.start && errors.start.type === "required" && (
-          <p>Este campo es obligatorio</p>
-        )}
-        {errors.start && errors.start.type === "pattern" && (
-          <p>El valor ingresado debe ser numérico</p>
-        )}
-        {/* Nodo de inicio */}
-        <label htmlFor="goal">Nodo objetivo:</label>
-        <input
-          name="goal"
-          type="text"
-          placeholder="0"
-          ref={register({ required: true, pattern: /^[0-9]+$/, minLength: 1 })}
-        />
-        {errors.goal && errors.goal.type === "required" && (
-          <p>Este campo es obligatorio</p>
-        )}
-        {errors.goal && errors.goal.type === "pattern" && (
-          <p>El valor ingresado debe ser numérico</p>
-        )}
+        {/* Nodo de objetivo */}
+        <div className="form-goal__container">
+          <TextField
+            variant="outlined"
+            label={props.input2}
+            placeholder="0"
+            name={props.name2}
+            inputRef={register({
+              required: true,
+              pattern: /^[0-9]+$/,
+              minLength: 1
+            })}
+          ></TextField>
+
+          <span className="form__error">
+            {errors.goal && errors.goal.type === "required" && (
+              <p>Este campo es obligatorio</p>
+            )}
+            {errors.goal && errors.goal.type === "pattern" && (
+              <p>El valor ingresado debe ser numérico</p>
+            )}
+          </span>
+        </div>
+      </div>
+
+      <div className="button__container">
         <Button variant="contained" color="primary" type="submit">
-          Holiwi
+          {props.button}
         </Button>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };
 

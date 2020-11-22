@@ -2,14 +2,13 @@
     height: 100vh;
     width: 100vw;
 
-    background-color: rebeccapurple;
-
     display: grid;
-    grid-template: 10% 1fr / 1fr;
+    grid-template: 15% 1fr / 1fr;
 }
 
 .layout__container--main {
-    background-color: saddlebrown;
+    background-color: #bdbdbd;
+
     display: grid;
     grid-template: 1fr / 18% 1fr;
 }

@@ -9,3 +9,16 @@
 
     text-align: center;
 }
+
+.graph-forms__container {
+    background-color: rebeccapurple;
+
+    padding: 0 10px;
+
+    display: grid;
+    grid-template: 1fr / 1fr 1fr;
+}
+
+.graph-forms__table {
+    background-color: teal;
+}
