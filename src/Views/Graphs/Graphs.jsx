@@ -4,6 +4,7 @@ import "./Graphs.css";
 /* Importamos los formularios */
 import FormTwo from "./../../Components/Forms/FormTwo/FormTwo";
 import GraphTable from "./../../Components/Tables/GraphTables/GraphTables";
+import Button from "@material-ui/core/Button";
 
 const test1 = {
   start: 0,
@@ -36,6 +37,38 @@ const Graphs = () => {
 
   const deleteElement = (key) => {
     setPairs(pairs.filter((pair, index) => index != key));
+  };
+
+  const sendToBackend = () => {
+    let edges = "";
+
+    pairs.map((pair, index) => {
+      if (index + 1 != pairs.length) {
+        edges = edges + `${pair[0]}-${pair[1]},`;
+      } else {
+        edges = edges + `${pair[0]}-${pair[1]}`;
+      }
+    });
+
+    let res = {
+      start: parseInt(limits.start),
+      goal: parseInt(limits.goal),
+      edges: edges
+    };
+
+    console.log(res);
+    console.log(JSON.stringify(res));
+
+    fetch("https://obscure-sierra-80708.herokuapp.com/graph", {
+      method: "PUT",
+      body: JSON.stringify(res),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then((res) => res.json())
+      .catch((err) => console.log("Error:", err))
+      .then((res) => console.log("Yei", res));
   };
 
   return (
@@ -83,6 +116,18 @@ const Graphs = () => {
               setPairs={setPairs}
               deleteElement={deleteElement}
             ></GraphTable>
+          </div>
+        )}
+
+        {limits.start && pairs.length >= 1 && (
+          <div className="send__button">
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={sendToBackend}
+            >
+              Encontrar camino!
+            </Button>
           </div>
         )}
       </div>
