@@ -29,9 +29,6 @@ const Graphs = () => {
     goal: null
   });
 
-  console.log(limits);
-  console.log(pairs);
-
   const titles1 = ["Nodo de inicio", "Nodo objetivo", ""];
   const titles2 = ["Nodo inicial", "Nodo final", ""];
 
@@ -59,7 +56,7 @@ const Graphs = () => {
     console.log(res);
     console.log(JSON.stringify(res));
 
-    fetch("https://obscure-sierra-80708.herokuapp.com/graph", {
+    fetch("graph", {
       method: "PUT",
       body: JSON.stringify(res),
       headers: {
@@ -98,38 +95,40 @@ const Graphs = () => {
           ></FormTwo>
         </div>
 
-        {limits.start && (
-          <div className="graph-forms__table">
-            <GraphTable
-              titles={titles1}
-              limits={limits}
-              setLimits={setLimits}
-            ></GraphTable>
-          </div>
-        )}
+        <div className="tables__container">
+          {limits.start && (
+            <div className="graph-forms__table">
+              <GraphTable
+                titles={titles1}
+                limits={limits}
+                setLimits={setLimits}
+              ></GraphTable>
+            </div>
+          )}
 
-        {pairs.length >= 1 && (
-          <div className="graph-forms__table">
-            <GraphTable
-              titles={titles2}
-              pairs={pairs}
-              setPairs={setPairs}
-              deleteElement={deleteElement}
-            ></GraphTable>
-          </div>
-        )}
+          {pairs.length >= 1 && (
+            <div className="graph-forms__table">
+              <GraphTable
+                titles={titles2}
+                pairs={pairs}
+                setPairs={setPairs}
+                deleteElement={deleteElement}
+              ></GraphTable>
+            </div>
+          )}
 
-        {limits.start && pairs.length >= 1 && (
-          <div className="send__button">
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={sendToBackend}
-            >
-              Encontrar camino!
-            </Button>
-          </div>
-        )}
+          {limits.start && pairs.length >= 1 && (
+            <div className="send__button">
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={sendToBackend}
+              >
+                Encontrar camino!
+              </Button>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );
