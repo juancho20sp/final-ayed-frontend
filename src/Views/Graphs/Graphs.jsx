@@ -5,6 +5,7 @@ import "./Graphs.css";
 import FormTwo from "./../../Components/Forms/FormTwo/FormTwo";
 import GraphTable from "./../../Components/Tables/GraphTables/GraphTables";
 import Button from "@material-ui/core/Button";
+import TransitionsModal from "../../Components/Modal/Modal";
 
 const test1 = {
   start: 0,
@@ -33,18 +34,22 @@ const Graphs = () => {
   const titles2 = ["Nodo inicial", "Nodo final", ""];
 
   const deleteElement = (key) => {
-    setPairs(pairs.filter((pair, index) => index != key));
+    setPairs(pairs.filter((pair, index) => index !== key));
   };
 
   const sendToBackend = () => {
     let edges = "";
 
+    setLoading(true);
+    setOpen(true);
+
     pairs.map((pair, index) => {
-      if (index + 1 != pairs.length) {
+      if (index + 1 !== pairs.length) {
         edges = edges + `${pair[0]}-${pair[1]},`;
       } else {
         edges = edges + `${pair[0]}-${pair[1]}`;
       }
+      return 0;
     });
 
     let res = {
@@ -65,9 +70,24 @@ const Graphs = () => {
     })
       .then((res) => res.json())
       .catch((err) => console.log("Error:", err))
-      .then((res) => console.log("Yei", res));
+      .then((res) => {
+        setLoading(false);
+        setData(res);
+        console.log("Yei", res);
+      });
   };
 
+  const [open, setOpen] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
+  const [data, setData] = React.useState({});
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <>
       <div className="graph__container">
@@ -130,6 +150,14 @@ const Graphs = () => {
           )}
         </div>
       </div>
+
+      <TransitionsModal
+        open={open}
+        handleClose={handleClose}
+        handleOpen={handleOpen}
+        isLoading={loading}
+        data={data}
+      ></TransitionsModal>
     </>
   );
 };

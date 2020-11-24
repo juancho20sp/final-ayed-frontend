@@ -1,0 +1,25 @@
+.modal {
+    background-color: red;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal__fade {
+    border-radius: 20px;
+
+    padding: 5px;
+
+    width: 70vw;
+    height: 40vh;
+    background-color: violet;
+
+    display: grid;
+    grid-template: 20% 1fr 10%/ 1fr;
+    grid-template-areas: "title""body""button"
+}
+
+.modal__fade:focus {
+    outline: none;
+}
