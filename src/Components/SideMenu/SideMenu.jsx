@@ -34,6 +34,24 @@ const SideMenu = (props) => {
         >
           <p>Montón binario</p>
         </NavLink>
+
+        {/* Link a regiones conexas */}
+        <NavLink
+          to={Routes.regions.path}
+          activeClassName="link__active"
+          className="link"
+        >
+          <p>Regiones conexas</p>
+        </NavLink>
+
+        {/* Link al algoritmo de Djikstra */}
+        <NavLink
+          to={Routes.djikstra.path}
+          activeClassName="link__active"
+          className="link"
+        >
+          <p>Djikstra</p>
+        </NavLink>
       </nav>
     </>
   );

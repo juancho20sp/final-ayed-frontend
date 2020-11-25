@@ -11,6 +11,12 @@ import Graphs from "./../Views/Graphs/Graphs";
 /* Vista de montón binario */
 import BinaryHeap from "./../Views/BinaryHeap/BinaryHeap";
 
+//  Vista de regiones conexas
+import Regions from "./../Views/Regions/Regions";
+
+//  Vista del algoritmo de Djikstra
+import Djikstra from "./../Views/Djikstra/Djikstra";
+
 import Routes from "./../Routes/Routes";
 
 function App() {
@@ -32,6 +38,12 @@ function App() {
             <Route exact path={Routes.home.path} component={Main}></Route>
             <Route exact path={Routes.graphs.path} component={Graphs}></Route>
             <Route exact path={Routes.heap.path} component={BinaryHeap}></Route>
+            <Route exact path={Routes.regions.path} component={Regions}></Route>
+            <Route
+              exact
+              path={Routes.djikstra.path}
+              component={Djikstra}
+            ></Route>
           </Switch>
         </Layout>
       </BrowserRouter>
