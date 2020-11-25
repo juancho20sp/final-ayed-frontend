@@ -9,7 +9,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 
-const GraphTables = (props) => {
+const BinHeapTables = (props) => {
   return (
     <TableContainer component={Paper}>
       <Table className="" aria-label="customized table">
@@ -23,32 +23,14 @@ const GraphTables = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.limits && (
-            <TableRow key="1">
-              <TableCell component="th" scope="row" align="center">
-                {props.limits.start}
-              </TableCell>
-              <TableCell align="center">{props.limits.goal}</TableCell>
-              <TableCell
-                align="center"
-                onClick={() => {
-                  props.setLimits([]);
-                }}
-              >
-                <Button variant="contained" color="secondary">
-                  BORRAR
-                </Button>
-              </TableCell>
-            </TableRow>
-          )}
-
-          {props.pairs &&
-            props.pairs.map((pair, index) => (
+          {props.info &&
+            props.info.map((person, index) => (
               <TableRow key={index}>
                 <TableCell component="th" scope="row" align="center">
-                  {pair[0]}
+                  {person.names}
                 </TableCell>
-                <TableCell align="center">{pair[1]}</TableCell>
+                <TableCell align="center">{person.popularity}</TableCell>
+                <TableCell align="center">{person.times_spoken}</TableCell>
                 <TableCell
                   align="center"
                   onClick={() => props.deleteElement(index)}
@@ -65,4 +47,4 @@ const GraphTables = (props) => {
   );
 };
 
-export default GraphTables;
+export default BinHeapTables;

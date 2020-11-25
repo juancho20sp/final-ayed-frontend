@@ -8,6 +8,9 @@ import Main from "./../Components/Main/Main";
 /* Vista de grafos */
 import Graphs from "./../Views/Graphs/Graphs";
 
+/* Vista de montón binario */
+import BinaryHeap from "./../Views/BinaryHeap/BinaryHeap";
+
 import Routes from "./../Routes/Routes";
 
 function App() {
@@ -28,6 +31,7 @@ function App() {
           <Switch>
             <Route exact path={Routes.home.path} component={Main}></Route>
             <Route exact path={Routes.graphs.path} component={Graphs}></Route>
+            <Route exact path={Routes.heap.path} component={BinaryHeap}></Route>
           </Switch>
         </Layout>
       </BrowserRouter>

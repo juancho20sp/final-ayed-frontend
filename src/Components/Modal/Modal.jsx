@@ -28,12 +28,17 @@ const TransitionsModal = (props) => {
             <h2 id="transition-modal-title">Transition modal</h2>
             {props.isLoading && <CircularProgress></CircularProgress>}
 
-            {!props.isLoading &&
-              (console.log(props.data),
-              (
-                <p id="transition-modal-description">{`¡Estás a ${props.data.distance}
+            {!props.isLoading && props.type === "graph" && (
+              <p id="transition-modal-description">{`¡Estás a ${props.data.distance}
             personas de llegar a tu crush! La ruta que debes seguir es: ${props.data.nodes}`}</p>
-              ))}
+            )}
+
+            {!props.isLoading && props.type === "heap" && (
+              <p id="transition-modal-description">{`Las personas con las que más deberías relacionarte
+              son: ${props.data.data.map(
+                (person) => `${person.name} (${person.score})`
+              )}`}</p>
+            )}
 
             <Button
               variant="contained"

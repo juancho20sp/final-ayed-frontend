@@ -7,6 +7,8 @@ import GraphTable from "./../../Components/Tables/GraphTables/GraphTables";
 import Button from "@material-ui/core/Button";
 import TransitionsModal from "../../Components/Modal/Modal";
 
+import putApi from "../../Hooks/putApi";
+
 const test1 = {
   start: 0,
   goal: 4,
@@ -61,20 +63,7 @@ const Graphs = () => {
     console.log(res);
     console.log(JSON.stringify(res));
 
-    fetch("graph", {
-      method: "PUT",
-      body: JSON.stringify(res),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then((res) => res.json())
-      .catch((err) => console.log("Error:", err))
-      .then((res) => {
-        setLoading(false);
-        setData(res);
-        console.log("Yei", res);
-      });
+    putApi("graph", res, setLoading, setData);
   };
 
   const [open, setOpen] = React.useState(false);
@@ -157,6 +146,7 @@ const Graphs = () => {
         handleOpen={handleOpen}
         isLoading={loading}
         data={data}
+        type="graph"
       ></TransitionsModal>
     </>
   );
