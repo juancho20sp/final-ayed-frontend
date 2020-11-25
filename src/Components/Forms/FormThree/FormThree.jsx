@@ -35,15 +35,16 @@ const FormThree = (props) => {
   const name3 = props.name3;
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate>
+    <form className="form-three" onSubmit={handleSubmit(onSubmit)} noValidate>
       {/* Nombre */}
       <div className="form-three-slots__container">
         <div className="form-one__container">
           <TextField
+            fullWidth={true}
             variant="outlined"
             label={input1}
             placeholder={input1}
-            name={name1}
+            name="name"
             inputRef={register({
               required: true,
               pattern: /^[A-Za-z]+$/,
@@ -52,10 +53,10 @@ const FormThree = (props) => {
           ></TextField>
 
           <span className="form__error">
-            {errors.name1 && errors.name1.type === "required" && (
+            {errors.name && errors.name.type === "required" && (
               <p>Este campo es obligatorio</p>
             )}
-            {errors.name1 && errors.name1.type === "pattern" && (
+            {errors.name && errors.name.type === "pattern" && (
               <p>
                 El valor ingresado no puede contener carácteres especiales ni
                 números
@@ -67,10 +68,11 @@ const FormThree = (props) => {
         {/* Popularidad */}
         <div className="form-two__container">
           <TextField
+            fullWidth={true}
             variant="outlined"
             label={input2}
             placeholder={input2}
-            name={name2}
+            name="popularity"
             inputRef={register({
               required: true,
               pattern: /^[0-9]+$/,
@@ -79,10 +81,10 @@ const FormThree = (props) => {
           ></TextField>
 
           <span className="form__error">
-            {errors.name2 && errors.name2.type === "required" && (
+            {errors.popularity && errors.popularity.type === "required" && (
               <p>Este campo es obligatorio</p>
             )}
-            {errors.name2 && errors.name2.type === "pattern" && (
+            {errors.popularity && errors.popularity.type === "pattern" && (
               <p>El valor ingresado debe ser numérico</p>
             )}
           </span>
@@ -91,10 +93,11 @@ const FormThree = (props) => {
         {/* Número de contactos */}
         <div className="form-three__container">
           <TextField
+            fullWidth={true}
             variant="outlined"
             label={input3}
             placeholder={input3}
-            name={name3}
+            name="times"
             inputRef={register({
               required: true,
               pattern: /^[0-9]+$/,
@@ -103,10 +106,10 @@ const FormThree = (props) => {
           ></TextField>
 
           <span className="form__error">
-            {errors.name3 && errors.name3.type === "required" && (
+            {errors.times && errors.times.type === "required" && (
               <p>Este campo es obligatorio</p>
             )}
-            {errors.name3 && errors.name3.type === "pattern" && (
+            {errors.times && errors.times.type === "pattern" && (
               <p>El valor ingresado debe ser numérico</p>
             )}
           </span>

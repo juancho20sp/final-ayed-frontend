@@ -1,0 +1,32 @@
+.form-three-slots__container {
+    /* background-color: red; */
+
+    display: grid;
+    grid-template: 1fr / repeat(3, 1fr);
+    align-items: center;
+}
+
+.form-three-slots__container>.form-one__container {
+    /* background-color: royalblue; */
+    width: 80%;
+    justify-self: center;
+}
+
+
+
+.form-three-slots__container>.form-two__container {
+    /* background-color: royalblue; */
+    width: 80%;
+    justify-self: center;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.form-three-slots__container>.form-three__container {
+    /* background-color: royalblue; */
+    width: 80%;
+    justify-self: center;
+}

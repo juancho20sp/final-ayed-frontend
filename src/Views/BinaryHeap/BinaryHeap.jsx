@@ -23,8 +23,6 @@ const BinaryHeap = () => {
     ""
   ];
 
-  const names = ["names", "popularity", "times_spoken"];
-
   const deleteElement = (key) => {
     setInfo(info.filter((person, index) => index !== key));
   };
@@ -41,16 +39,16 @@ const BinaryHeap = () => {
 
     info.map((person) => {
       res.names = res.names.length
-        ? res.names + `,${person.names}`
-        : person.names;
+        ? res.names + `,${person.name}`
+        : person.name;
 
       res.popularity = res.popularity.length
         ? res.popularity + `,${person.popularity}`
         : person.popularity;
 
       res.times_spoken = res.times_spoken.length
-        ? res.times_spoken + `,${person.times_spoken}`
-        : person.times_spoken;
+        ? res.times_spoken + `,${person.times}`
+        : person.times;
     });
 
     console.log(res);
@@ -73,17 +71,14 @@ const BinaryHeap = () => {
 
   return (
     <>
-      <div className="graph__container">
-        <h2 className="graph__title">Montón binario</h2>
+      <div className="bin-heap__container">
+        <h2 className="bin-heap__title">Montón binario</h2>
 
-        <div className="graph-forms__container">
+        <div className="bin-heap-forms__container">
           <FormThree
             input1={titles[0]}
-            name1={names[0]}
             input2={titles[1]}
-            name2={names[1]}
             input3={titles[2]}
-            name3={names[2]}
             button="Agregar persona"
             info={info}
             setInfo={setInfo}
@@ -92,7 +87,7 @@ const BinaryHeap = () => {
 
         <div className="tables__container">
           {info.length >= 1 && (
-            <div className="graph-forms__table">
+            <div className="bin-heap-forms__table">
               <BinHeapTables
                 titles={titles}
                 info={info}

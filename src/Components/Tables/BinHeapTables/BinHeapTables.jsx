@@ -27,7 +27,7 @@ const BinHeapTables = (props) => {
             props.info.map((person, index) => (
               <TableRow key={index}>
                 <TableCell component="th" scope="row" align="center">
-                  {person.names}
+                  {person.name}
                 </TableCell>
                 <TableCell align="center">{person.popularity}</TableCell>
                 <TableCell align="center">{person.times_spoken}</TableCell>
