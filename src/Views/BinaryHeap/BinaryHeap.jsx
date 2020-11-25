@@ -115,14 +115,16 @@ const BinaryHeap = () => {
         </div>
       </div>
 
-      <TransitionsModal
-        open={open}
-        handleClose={handleClose}
-        handleOpen={handleOpen}
-        isLoading={loading}
-        data={data}
-        type="heap"
-      ></TransitionsModal>
+      {data && (
+        <TransitionsModal
+          open={open}
+          handleClose={handleClose}
+          handleOpen={handleOpen}
+          isLoading={loading}
+          data={data}
+          type="heap"
+        ></TransitionsModal>
+      )}
     </>
   );
 };

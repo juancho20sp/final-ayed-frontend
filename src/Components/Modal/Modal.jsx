@@ -33,7 +33,7 @@ const TransitionsModal = (props) => {
             personas de llegar a tu crush! La ruta que debes seguir es: ${props.data.nodes}`}</p>
             )}
 
-            {!props.isLoading && props.type === "heap" && (
+            {!props.isLoading && props.type === "heap" && props.data.data && (
               <p id="transition-modal-description">{`Las personas con las que más deberías relacionarte
               son: ${props.data.data.map(
                 (person) => `${person.name} (${person.score})`
