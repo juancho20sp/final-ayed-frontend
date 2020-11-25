@@ -7,6 +7,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import DeleteIcon from "@material-ui/icons/Delete";
 import Button from "@material-ui/core/Button";
 
 const GraphTables = (props) => {
@@ -35,7 +36,11 @@ const GraphTables = (props) => {
                   props.setLimits([]);
                 }}
               >
-                <Button variant="contained" color="secondary">
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  startIcon={<DeleteIcon></DeleteIcon>}
+                >
                   BORRAR
                 </Button>
               </TableCell>
@@ -53,7 +58,11 @@ const GraphTables = (props) => {
                   align="center"
                   onClick={() => props.deleteElement(index)}
                 >
-                  <Button variant="contained" color="secondary">
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    startIcon={<DeleteIcon></DeleteIcon>}
+                  >
                     BORRAR
                   </Button>
                 </TableCell>

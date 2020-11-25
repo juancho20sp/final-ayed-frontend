@@ -7,6 +7,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import DeleteIcon from "@material-ui/icons/Delete";
 import Button from "@material-ui/core/Button";
 
 const BinHeapTables = (props) => {
@@ -30,12 +31,16 @@ const BinHeapTables = (props) => {
                   {person.name}
                 </TableCell>
                 <TableCell align="center">{person.popularity}</TableCell>
-                <TableCell align="center">{person.times_spoken}</TableCell>
+                <TableCell align="center">{person.times}</TableCell>
                 <TableCell
                   align="center"
                   onClick={() => props.deleteElement(index)}
                 >
-                  <Button variant="contained" color="secondary">
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    startIcon={<DeleteIcon></DeleteIcon>}
+                  >
                     BORRAR
                   </Button>
                 </TableCell>

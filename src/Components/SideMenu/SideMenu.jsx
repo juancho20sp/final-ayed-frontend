@@ -4,6 +4,8 @@ import "./SideMenu.css";
 
 import Routes from "./../../Routes/Routes";
 
+import Button from "@material-ui/core/Button";
+
 const SideMenu = (props) => {
   return (
     <>
@@ -14,7 +16,7 @@ const SideMenu = (props) => {
           activeClassName="link__active"
           className="link"
         >
-          <p>Inicio</p>
+          <Button variant="outlined">Inicio</Button>
         </NavLink>
 
         {/* Link a la pantalla de grafos */}
@@ -23,7 +25,7 @@ const SideMenu = (props) => {
           activeClassName="link__active"
           className="link"
         >
-          <p>Grafos</p>
+          <Button variant="outlined">Grafos</Button>
         </NavLink>
 
         {/* Link a montón binario */}
@@ -32,7 +34,7 @@ const SideMenu = (props) => {
           activeClassName="link__active"
           className="link"
         >
-          <p>Montón binario</p>
+          <Button variant="outlined">Montón binario</Button>
         </NavLink>
 
         {/* Link a regiones conexas */}
@@ -41,7 +43,7 @@ const SideMenu = (props) => {
           activeClassName="link__active"
           className="link"
         >
-          <p>Regiones conexas</p>
+          <Button variant="outlined">Regiones conexas</Button>
         </NavLink>
 
         {/* Link al algoritmo de Djikstra */}
@@ -50,7 +52,7 @@ const SideMenu = (props) => {
           activeClassName="link__active"
           className="link"
         >
-          <p>Djikstra</p>
+          <Button variant="outlined">Djikstra</Button>
         </NavLink>
       </nav>
     </>
