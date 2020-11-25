@@ -1,10 +1,29 @@
 .aside {
     background-color: white;
+    display: grid;
+
+    justify-content: center;
+    align-items: center;
 }
 
 .link {
-    text-decoration: none;
+
+    /* border-radius: 15px; */
     color: black;
+
+
+    width: 90%;
+
+    margin: 5px;
+
+    text-decoration: none;
+
+    justify-self: center;
+
+
+
+
+
 }
 
 .link:hover {
@@ -12,5 +31,20 @@
 }
 
 .link__active {
+    background-color: rgba(0, 0, 0, 0.4);
     text-decoration: none;
+}
+
+/* Media Query para pantallas grandes */
+@media screen and (min-width: 1080px) {}
+
+
+/* Media Query para pantallas medianas y pequeñas */
+@media screen and (max-width: 1080px) {
+    .aside {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+    }
 }

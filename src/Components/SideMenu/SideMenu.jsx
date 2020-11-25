@@ -13,10 +13,12 @@ const SideMenu = (props) => {
         {/* Link a la vista principal*/}
         <NavLink
           to={Routes.home.path}
-          activeClassName="link__active"
+          // activeClassName="link__active"
           className="link"
         >
-          <Button variant="outlined">Inicio</Button>
+          <Button variant="outlined" fullWidth={true}>
+            Inicio
+          </Button>
         </NavLink>
 
         {/* Link a la pantalla de grafos */}
@@ -25,7 +27,9 @@ const SideMenu = (props) => {
           activeClassName="link__active"
           className="link"
         >
-          <Button variant="outlined">Grafos</Button>
+          <Button variant="outlined" fullWidth={true}>
+            Grafos
+          </Button>
         </NavLink>
 
         {/* Link a montón binario */}
@@ -34,7 +38,9 @@ const SideMenu = (props) => {
           activeClassName="link__active"
           className="link"
         >
-          <Button variant="outlined">Montón binario</Button>
+          <Button variant="outlined" fullWidth={true}>
+            Montón binario
+          </Button>
         </NavLink>
 
         {/* Link a regiones conexas */}
@@ -43,7 +49,9 @@ const SideMenu = (props) => {
           activeClassName="link__active"
           className="link"
         >
-          <Button variant="outlined">Regiones conexas</Button>
+          <Button variant="outlined" fullWidth={true}>
+            Regiones conexas
+          </Button>
         </NavLink>
 
         {/* Link al algoritmo de Djikstra */}
@@ -52,7 +60,9 @@ const SideMenu = (props) => {
           activeClassName="link__active"
           className="link"
         >
-          <Button variant="outlined">Djikstra</Button>
+          <Button variant="outlined" fullWidth={true}>
+            Djikstra
+          </Button>
         </NavLink>
       </nav>
     </>

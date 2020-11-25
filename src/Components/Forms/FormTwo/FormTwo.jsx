@@ -9,14 +9,12 @@ const FormTwo = (props) => {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
-    if (data.hasOwnProperty("start") || data.hasOwnProperty("goal")) {
+    if (props.isLimit) {
       props.setLimits({
         start: data.start,
         goal: data.goal
       });
-    }
-
-    if (data.hasOwnProperty("from") || data.hasOwnProperty("to")) {
+    } else {
       props.setPairs([...props.pairs, [data.from, data.to]]);
     }
   };
@@ -30,7 +28,7 @@ const FormTwo = (props) => {
             variant="outlined"
             label={props.input1}
             placeholder="0"
-            name={props.name1}
+            name="field1"
             inputRef={register({
               required: true,
               pattern: /^[0-9]+$/,
@@ -39,10 +37,10 @@ const FormTwo = (props) => {
           ></TextField>
 
           <span className="form__error">
-            {errors.start && errors.start.type === "required" && (
+            {errors.field1 && errors.field1.type === "required" && (
               <p>Este campo es obligatorio</p>
             )}
-            {errors.start && errors.start.type === "pattern" && (
+            {errors.field1 && errors.field1.type === "pattern" && (
               <p>El valor ingresado debe ser numérico</p>
             )}
           </span>
@@ -54,7 +52,7 @@ const FormTwo = (props) => {
             variant="outlined"
             label={props.input2}
             placeholder="0"
-            name={props.name2}
+            name="field2"
             inputRef={register({
               required: true,
               pattern: /^[0-9]+$/,
@@ -63,10 +61,10 @@ const FormTwo = (props) => {
           ></TextField>
 
           <span className="form__error">
-            {errors.goal && errors.goal.type === "required" && (
+            {errors.field2 && errors.field2.type === "required" && (
               <p>Este campo es obligatorio</p>
             )}
-            {errors.goal && errors.goal.type === "pattern" && (
+            {errors.field2 && errors.field2.type === "pattern" && (
               <p>El valor ingresado debe ser numérico</p>
             )}
           </span>

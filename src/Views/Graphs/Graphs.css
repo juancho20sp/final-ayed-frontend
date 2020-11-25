@@ -1,5 +1,5 @@
 .graph__container {
-    border: 5px solid black;
+    /* border: 5px solid black; */
     display: grid;
 
     grid-template: 10% auto 1fr / 1fr;

@@ -91,6 +91,7 @@ const Graphs = () => {
             button="Guardar parámetros"
             limits={limits}
             setLimits={setLimits}
+            isLimit={true}
           ></FormTwo>
 
           <FormTwo

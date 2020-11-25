@@ -44,7 +44,7 @@ const FormThree = (props) => {
             variant="outlined"
             label={input1}
             placeholder={input1}
-            name="name"
+            name="field1"
             inputRef={register({
               required: true,
               pattern: /^[A-Za-z]+$/,
@@ -53,10 +53,10 @@ const FormThree = (props) => {
           ></TextField>
 
           <span className="form__error">
-            {errors.name && errors.name.type === "required" && (
+            {errors.field1 && errors.field1.type === "required" && (
               <p>Este campo es obligatorio</p>
             )}
-            {errors.name && errors.name.type === "pattern" && (
+            {errors.field1 && errors.field1.type === "pattern" && (
               <p>
                 El valor ingresado no puede contener carácteres especiales ni
                 números
@@ -72,7 +72,7 @@ const FormThree = (props) => {
             variant="outlined"
             label={input2}
             placeholder={input2}
-            name="popularity"
+            name="field2"
             inputRef={register({
               required: true,
               pattern: /^[0-9]+$/,
@@ -81,10 +81,10 @@ const FormThree = (props) => {
           ></TextField>
 
           <span className="form__error">
-            {errors.popularity && errors.popularity.type === "required" && (
+            {errors.field2 && errors.field2.type === "required" && (
               <p>Este campo es obligatorio</p>
             )}
-            {errors.popularity && errors.popularity.type === "pattern" && (
+            {errors.field2 && errors.field2.type === "pattern" && (
               <p>El valor ingresado debe ser numérico</p>
             )}
           </span>
@@ -97,7 +97,7 @@ const FormThree = (props) => {
             variant="outlined"
             label={input3}
             placeholder={input3}
-            name="times"
+            name="field3"
             inputRef={register({
               required: true,
               pattern: /^[0-9]+$/,
@@ -106,10 +106,10 @@ const FormThree = (props) => {
           ></TextField>
 
           <span className="form__error">
-            {errors.times && errors.times.type === "required" && (
+            {errors.field3 && errors.field3.type === "required" && (
               <p>Este campo es obligatorio</p>
             )}
-            {errors.times && errors.times.type === "pattern" && (
+            {errors.field3 && errors.field3.type === "pattern" && (
               <p>El valor ingresado debe ser numérico</p>
             )}
           </span>

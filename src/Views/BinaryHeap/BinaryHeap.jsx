@@ -12,10 +12,6 @@ import putApi from "./../../Hooks/putApi";
 const BinaryHeap = () => {
   const [info, setInfo] = useState([]);
 
-  React.useEffect(() => {
-    console.log(info);
-  }, [info]);
-
   const titles = [
     "Nombre",
     "Índice de popularidad",
