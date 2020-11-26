@@ -60,8 +60,8 @@ const Graphs = () => {
       edges: edges
     };
 
-    console.log(res);
-    console.log(JSON.stringify(res));
+    // console.log(res);
+    // console.log(JSON.stringify(res));
 
     putApi("graph", res, setLoading, setData);
   };

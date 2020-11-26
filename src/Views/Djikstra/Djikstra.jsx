@@ -33,8 +33,8 @@ const Djikstra = () => {
     setLoading(true);
     setOpen(true);
 
-    console.log(limits);
-    console.log(pairs);
+    // console.log(limits);
+    // console.log(pairs);
 
     pairs.map((pair, index) => {
       if (index + 1 !== pairs.length) {
@@ -51,8 +51,8 @@ const Djikstra = () => {
       edges: edges
     };
 
-    console.log(res);
-    console.log(JSON.stringify(res));
+    // console.log(res);
+    // console.log(JSON.stringify(res));
 
     putApi("djikstra", res, setLoading, setData);
   };

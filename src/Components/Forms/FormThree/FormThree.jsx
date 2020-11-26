@@ -9,8 +9,6 @@ const FormThree = (props) => {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-
     if (props.isDjikstra) {
       const temp = {
         from: data.field1,
@@ -19,7 +17,6 @@ const FormThree = (props) => {
       };
 
       props.setPairs([...props.pairs, temp]);
-      console.log(props.pairs);
     } else {
       /*const newNames = props.info.names.length
       ? props.info.names + `,${data.names}`
