@@ -24,17 +24,16 @@ const RegTables = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.nodes >= 1 &&
-            props.nodes.map((person, index) => (
+          {props.nodes &&
+            props.nodes.length >= 1 &&
+            props.nodes.map((node, index) => (
               <TableRow key={index}>
                 <TableCell component="th" scope="row" align="center">
-                  {person.name}
+                  {node}
                 </TableCell>
-                <TableCell align="center">{person.popularity}</TableCell>
-                <TableCell align="center">{person.times}</TableCell>
                 <TableCell
                   align="center"
-                  onClick={() => props.deleteElement(index)}
+                  onClick={() => props.deleteElement(index, "node")}
                 >
                   <Button
                     variant="contained"
@@ -47,14 +46,15 @@ const RegTables = (props) => {
               </TableRow>
             ))}
 
-          {props.info &&
-            props.info.map((person, index) => (
+          {console.log(props.pairs)}
+          {props.pairs &&
+            props.pairs.length >= 1 &&
+            props.pairs.map((pair, index) => (
               <TableRow key={index}>
                 <TableCell component="th" scope="row" align="center">
-                  {person.name}
+                  {pair[0]}
                 </TableCell>
-                <TableCell align="center">{person.popularity}</TableCell>
-                <TableCell align="center">{person.times}</TableCell>
+                <TableCell align="center">{pair[1]}</TableCell>
                 <TableCell
                   align="center"
                   onClick={() => props.deleteElement(index)}

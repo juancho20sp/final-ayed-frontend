@@ -46,6 +46,18 @@ const TransitionsModal = (props) => {
               costo de: ${props.data.cost}`}</p>
             )}
 
+            {!props.isLoading &&
+              props.type === "regions" &&
+              props.data.related_regions && (
+                <p id="transition-modal-description">{`Hay ${
+                  props.data.related_regions.length
+                }
+               regiones conexas en el grafo y son:
+               ${props.data.related_regions.map((region) => {
+                 return ` [${region}]`;
+               })}`}</p>
+              )}
+
             <Button
               variant="contained"
               color="secondary"

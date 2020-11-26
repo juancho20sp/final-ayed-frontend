@@ -9,22 +9,11 @@ const FormOne = (props) => {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
-    if (props.isDjikstra) {
-      const temp = {
-        from: data.field1,
-        to: data.field2,
-        cost: data.field3
-      };
+    console.log(data);
+    const node = data.field1;
 
-      props.setPairs([...props.pairs, temp]);
-    } else {
-      const temp = {
-        name: data.field1,
-        popularity: data.field2,
-        times: data.field3
-      };
-
-      props.setInfo([...props.info, temp]);
+    if (!props.nodes.includes(node)) {
+      props.setNodes([...props.nodes, node]);
     }
   };
 
