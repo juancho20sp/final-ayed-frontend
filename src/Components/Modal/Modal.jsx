@@ -25,8 +25,12 @@ const TransitionsModal = (props) => {
       >
         <Fade in={props.open}>
           <div className="modal__fade">
-            <h2 id="transition-modal-title">Transition modal</h2>
-            {props.isLoading && <CircularProgress></CircularProgress>}
+            <h2 id="transition-modal-title">Hey hey,</h2>
+            {props.isLoading && (
+              <p>
+                <CircularProgress></CircularProgress>
+              </p>
+            )}
 
             {!props.isLoading && props.type === "graph" && (
               <p id="transition-modal-description">{`¡Estás a ${props.data.distance}
@@ -63,7 +67,7 @@ const TransitionsModal = (props) => {
               color="secondary"
               onClick={props.handleClose}
             >
-              Holiwi
+              Volver
             </Button>
           </div>
         </Fade>

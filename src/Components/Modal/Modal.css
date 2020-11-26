@@ -1,5 +1,5 @@
 .modal {
-    background-color: red;
+    background-color: rgba(0, 0, 0, 0.3);
 
     display: flex;
     justify-content: center;
@@ -7,13 +7,15 @@
 }
 
 .modal__fade {
+    border: 5px solid black;
     border-radius: 20px;
 
     padding: 5px;
+    /* padding-bottom: 10px; */
 
     width: 70vw;
     height: 40vh;
-    background-color: violet;
+    background-color: rgb(218, 225, 236);
 
     display: grid;
     grid-template: 20% 1fr 10%/ 1fr;
@@ -22,4 +24,24 @@
 
 .modal__fade:focus {
     outline: none;
+}
+
+.modal__fade>h2 {
+    margin-left: 15px;
+    font-size: 2rem;
+}
+
+.modal__fade>p {
+    /* background-color: royalblue; */
+    font-size: 1.4rem;
+
+
+    text-align: center;
+    align-self: center;
+}
+
+.modal__fade button {
+    width: 40%;
+
+    justify-self: center;
 }
