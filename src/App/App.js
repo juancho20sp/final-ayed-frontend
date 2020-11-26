@@ -17,6 +17,9 @@ import Regions from "./../Views/Regions/Regions";
 //  Vista del algoritmo de Djikstra
 import Djikstra from "./../Views/Djikstra/Djikstra";
 
+//  404
+import Page404 from "./../Views/404/404";
+
 import Routes from "./../Routes/Routes";
 
 function App() {
@@ -44,6 +47,7 @@ function App() {
               path={Routes.djikstra.path}
               component={Djikstra}
             ></Route>
+            <Route component={Page404}></Route>
           </Switch>
         </Layout>
       </BrowserRouter>

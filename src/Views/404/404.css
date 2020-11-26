@@ -1,0 +1,11 @@
+.not-found__container {
+    background-color: white;
+    border-left: 5px solid black;
+
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
