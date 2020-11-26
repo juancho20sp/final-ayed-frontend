@@ -1,3 +1,73 @@
 .main__container {
-    background-color: transparent;
+    /* background-color: red; */
+    padding: 15px;
+
+    display: grid;
+    grid-template: 40% 1fr / 1fr;
+}
+
+.main__authors {
+    /* background-color: royalblue; */
+
+    /* padding-bottom: 0px; */
+
+    display: grid;
+    grid-template: repeat(2, 1fr) / 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__authors>h3 {
+    /* background-color: seagreen; */
+    text-align: center;
+}
+
+
+.main__authors>div {
+    /* background-color: salmon; */
+
+    text-align: center;
+    height: 100%;
+    display: grid;
+    grid-template: 1fr / repeat(2, 1fr);
+}
+
+.main__authors>div>p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.main__container>div:nth-child(2) {
+    /* background-color: rebeccapurple; */
+    border-top: 5px solid black;
+    padding: 15px;
+
+    text-align: center;
+}
+
+.main__container>div:nth-child(2)>div {
+    /* background-color: rosybrown; */
+
+    text-align: start;
+
+    display: grid;
+    grid-template: 1fr / repeat(2, 1fr);
+
+    justify-items: center;
+}
+
+.backend,
+.frontend {
+    background-color: rgba(255, 255, 255, 0.6);
+
+    border: 2px solid black;
+    border-radius: 15px;
+
+    padding: 25px;
+}
+
+.backend a:hover,
+.frontend a:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
