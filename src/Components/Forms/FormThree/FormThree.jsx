@@ -23,7 +23,13 @@ const FormThree = (props) => {
       ? props.info.times_spoken + `,${data.times_spoken}`
       : data.times_spoken;*/
 
-    props.setInfo([...props.info, data]);
+    const temp = {
+      name: data.field1,
+      popularity: data.field2,
+      times: data.field3
+    };
+
+    props.setInfo([...props.info, temp]);
   };
 
   const input1 = props.input1;

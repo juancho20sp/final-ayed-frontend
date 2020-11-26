@@ -11,11 +11,11 @@ const FormTwo = (props) => {
   const onSubmit = (data) => {
     if (props.isLimit) {
       props.setLimits({
-        start: data.start,
-        goal: data.goal
+        start: data.field1,
+        goal: data.field2
       });
     } else {
-      props.setPairs([...props.pairs, [data.from, data.to]]);
+      props.setPairs([...props.pairs, [data.field1, data.field2]]);
     }
   };
 
