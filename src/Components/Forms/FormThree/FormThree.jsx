@@ -11,7 +11,17 @@ const FormThree = (props) => {
   const onSubmit = (data) => {
     console.log(data);
 
-    /*const newNames = props.info.names.length
+    if (props.isDjikstra) {
+      const temp = {
+        from: data.field1,
+        to: data.field2,
+        cost: data.field3
+      };
+
+      props.setPairs([...props.pairs, temp]);
+      console.log(props.pairs);
+    } else {
+      /*const newNames = props.info.names.length
       ? props.info.names + `,${data.names}`
       : data.names;
 
@@ -23,22 +33,19 @@ const FormThree = (props) => {
       ? props.info.times_spoken + `,${data.times_spoken}`
       : data.times_spoken;*/
 
-    const temp = {
-      name: data.field1,
-      popularity: data.field2,
-      times: data.field3
-    };
+      const temp = {
+        name: data.field1,
+        popularity: data.field2,
+        times: data.field3
+      };
 
-    props.setInfo([...props.info, temp]);
+      props.setInfo([...props.info, temp]);
+    }
   };
 
   const input1 = props.input1;
   const input2 = props.input2;
   const input3 = props.input3;
-
-  const name1 = props.name1;
-  const name2 = props.name2;
-  const name3 = props.name3;
 
   return (
     <form className="form-three" onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -53,22 +60,35 @@ const FormThree = (props) => {
             name="field1"
             inputRef={register({
               required: true,
-              pattern: /^[A-Za-z]+$/,
-              minLength: 2
+              pattern: /^[A-Za-z0-9]+$/,
+              minLength: 1
             })}
           ></TextField>
 
-          <span className="form__error">
-            {errors.field1 && errors.field1.type === "required" && (
-              <p>Este campo es obligatorio</p>
-            )}
-            {errors.field1 && errors.field1.type === "pattern" && (
-              <p>
-                El valor ingresado no puede contener carácteres especiales ni
-                números
-              </p>
-            )}
-          </span>
+          {props.isDjikstra && (
+            <span className="form__error">
+              {errors.field1 && errors.field1.type === "required" && (
+                <p>Este campo es obligatorio</p>
+              )}
+              {errors.field1 && errors.field1.type === "pattern" && (
+                <p>El valor ingresado debe ser numérico</p>
+              )}
+            </span>
+          )}
+
+          {!props.isDjikstra && (
+            <span className="form__error">
+              {errors.field1 && errors.field1.type === "required" && (
+                <p>Este campo es obligatorio</p>
+              )}
+              {errors.field1 && errors.field1.type === "pattern" && (
+                <p>
+                  El valor ingresado no puede contener carácteres especiales ni
+                  números
+                </p>
+              )}
+            </span>
+          )}
         </div>
 
         {/* Popularidad */}

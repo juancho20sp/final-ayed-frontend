@@ -4,7 +4,7 @@ import "./Djikstra.css";
 /* Importamos los formularios */
 import FormTwo from "./../../Components/Forms/FormTwo/FormTwo";
 import FormThree from "./../../Components/Forms/FormThree/FormThree";
-import GraphTable from "./../../Components/Tables/GraphTables/GraphTables";
+import DjikstraTables from "./../../Components/Tables/DjikstraTables/DjikstraTables";
 import Button from "@material-ui/core/Button";
 import TransitionsModal from "../../Components/Modal/Modal";
 
@@ -33,11 +33,14 @@ const Djikstra = () => {
     setLoading(true);
     setOpen(true);
 
+    console.log(limits);
+    console.log(pairs);
+
     pairs.map((pair, index) => {
       if (index + 1 !== pairs.length) {
-        edges = edges + `${pair[0]}-${pair[1]},`;
+        edges = edges + `${pair.from}-${pair.to}-${pair.cost},`;
       } else {
-        edges = edges + `${pair[0]}-${pair[1]}`;
+        edges = edges + `${pair.from}-${pair.to}-${pair.cost}`;
       }
       return 0;
     });
@@ -51,7 +54,7 @@ const Djikstra = () => {
     console.log(res);
     console.log(JSON.stringify(res));
 
-    putApi("graph", res, setLoading, setData);
+    putApi("djikstra", res, setLoading, setData);
   };
 
   const [open, setOpen] = React.useState(false);
@@ -77,6 +80,7 @@ const Djikstra = () => {
             button="Guardar parámetros"
             limits={limits}
             setLimits={setLimits}
+            isLimit={true}
           ></FormTwo>
 
           <FormThree
@@ -86,28 +90,29 @@ const Djikstra = () => {
             button="Agregar conexión"
             pairs={pairs}
             setPairs={setPairs}
+            isDjikstra={true}
           ></FormThree>
         </div>
 
         <div className="tables__container">
           {limits.start && (
             <div className="graph-forms__table">
-              <GraphTable
+              <DjikstraTables
                 titles={titles1}
                 limits={limits}
                 setLimits={setLimits}
-              ></GraphTable>
+              ></DjikstraTables>
             </div>
           )}
 
           {pairs.length >= 1 && (
             <div className="graph-forms__table">
-              <GraphTable
+              <DjikstraTables
                 titles={titles2}
                 pairs={pairs}
                 setPairs={setPairs}
                 deleteElement={deleteElement}
-              ></GraphTable>
+              ></DjikstraTables>
             </div>
           )}
 
@@ -131,7 +136,7 @@ const Djikstra = () => {
         handleOpen={handleOpen}
         isLoading={loading}
         data={data}
-        type="graph"
+        type="djikstra"
       ></TransitionsModal>
     </>
   );

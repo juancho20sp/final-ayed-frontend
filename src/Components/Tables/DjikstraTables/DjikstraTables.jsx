@@ -24,14 +24,37 @@ const DjikstraTables = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.info &&
-            props.info.map((person, index) => (
+          {props.limits && (
+            <TableRow key="1">
+              <TableCell component="th" scope="row" align="center">
+                {props.limits.start}
+              </TableCell>
+              <TableCell align="center">{props.limits.goal}</TableCell>
+              <TableCell
+                align="center"
+                onClick={() => {
+                  props.setLimits([]);
+                }}
+              >
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  startIcon={<DeleteIcon></DeleteIcon>}
+                >
+                  BORRAR
+                </Button>
+              </TableCell>
+            </TableRow>
+          )}
+
+          {props.pairs &&
+            props.pairs.map((pair, index) => (
               <TableRow key={index}>
                 <TableCell component="th" scope="row" align="center">
-                  {person.name}
+                  {pair.from}
                 </TableCell>
-                <TableCell align="center">{person.popularity}</TableCell>
-                <TableCell align="center">{person.times}</TableCell>
+                <TableCell align="center">{pair.to}</TableCell>
+                <TableCell align="center">{pair.cost}</TableCell>
                 <TableCell
                   align="center"
                   onClick={() => props.deleteElement(index)}

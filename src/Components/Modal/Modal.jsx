@@ -40,6 +40,12 @@ const TransitionsModal = (props) => {
               )}`}</p>
             )}
 
+            {!props.isLoading && props.type === "djikstra" && props.data && (
+              <p id="transition-modal-description">{`¡Estás a ${props.data.route.length}
+              personas de llegar a tu crush! La ruta que debes seguir es: ${props.data.route} y tiene un 
+              costo de: ${props.data.cost}`}</p>
+            )}
+
             <Button
               variant="contained"
               color="secondary"
