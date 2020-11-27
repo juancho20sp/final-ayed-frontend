@@ -103,7 +103,7 @@ An example will look like:
 ## Author
 
 * **Juan David Murillo** - [Github](https://github.com/juancho20sp) | [Twitter](https://twitter.com/juancho20sp)<br/>
-* **Diego Fernando Ruiz** -<br/>
+* **Diego Fernando Ruiz** -[Github](https://github.com/Diegoruro)<br/>
 Students at: [Escuela Colombiana de Ingeniería Julio Garavito](https://www.escuelaing.edu.co/es/) <br/>
 2020 
 

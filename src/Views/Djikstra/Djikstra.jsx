@@ -19,7 +19,7 @@ const Djikstra = () => {
 
   const titles1 = ["Nodo inicial", "Nodo objetivo"];
   const titles2 = ["Desde el nodo", "Hacia el nodo", "Costo de la ruta"];
-
+  
   const deleteElement = (key) => {
     setPairs(pairs.filter((arc, index) => index !== key));
   };

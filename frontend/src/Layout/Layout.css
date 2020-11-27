@@ -1,0 +1,31 @@
+.layout__container {
+    height: 100vh;
+    width: 100vw;
+
+    background-color: rebeccapurple;
+
+    display: grid;
+    grid-template: 10% 1fr / 1fr;
+}
+
+.layout__container--main {
+    background-color: saddlebrown;
+    display: grid;
+    grid-template: 1fr / 18% 1fr;
+}
+
+
+/* Media Query para pantallas grandes */
+@media screen and (min-width: 1080px) {
+    .layout__container--main {
+        grid-template: 1fr / 10% 1fr;
+    }
+}
+
+
+/* Media Query para pantallas medianas y pequeñas */
+@media screen and (max-width: 1080px) {
+    .layout__container--main {
+        grid-template: 15% 1fr / 1fr;
+    }
+}
