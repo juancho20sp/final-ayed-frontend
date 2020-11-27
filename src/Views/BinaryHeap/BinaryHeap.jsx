@@ -47,6 +47,7 @@ const BinaryHeap = () => {
         : person.times;
 
       return 0;
+
     });
 
     // console.log(res);
