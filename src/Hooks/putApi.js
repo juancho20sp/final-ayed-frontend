@@ -1,5 +1,5 @@
 const putApi = (endpoint, res, setLoading, setData) => {
-  fetch(`${endpoint}`, {
+  fetch(`https://obscure-sierra-80708.herokuapp.com/${endpoint}`, {
     method: "PUT",
     body: JSON.stringify(res),
     headers: {
