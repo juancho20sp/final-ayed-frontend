@@ -45,6 +45,9 @@ const BinaryHeap = () => {
       res.times_spoken = res.times_spoken.length
         ? res.times_spoken + `,${person.times}`
         : person.times;
+
+      return 0;
+
     });
 
     // console.log(res);
